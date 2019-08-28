@@ -6,3 +6,6 @@ footer.footer{
   background-color: #fff;
   box-shadow: var(--shadow);
 }
+.text-primary{
+  text-decoration: underline;
+}

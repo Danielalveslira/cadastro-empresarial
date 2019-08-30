@@ -49,6 +49,43 @@
       "id": 10,
       "name": "Mabel",
       "email": "mabel@gmail.com"
+    },
+    {
+      "name": " Bill Chiper",
+      "email": "reality-is-a-ilusion@email.com",
+      "id": 11
+    },
+    {
+      "name": " nome",
+      "email": "email",
+      "address": "endereço",
+      "id": 13
+    },
+    {
+      "name": " alan",
+      "email": "caraIncrivel",
+      "address": "rua dos melhores",
+      "id": 14
+    },
+    {
+      "name": " nome",
+      "email": "email",
+      "address": "endereço",
+      "id": 15
+    }
+  ],
+  "products": [
+    {
+      "name": " a",
+      "qtd": " 3",
+      "valor": " 4",
+      "id": 2
+    },
+    {
+      "name": " caneca",
+      "qtd": "1",
+      "valor": "2",
+      "id": 3
     }
   ]
 }

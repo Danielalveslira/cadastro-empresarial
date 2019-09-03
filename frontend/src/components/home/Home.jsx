@@ -1,10 +1,45 @@
 import React from 'react'
 import Main from '../template/Main'
 
-export default props=>
-      <Main icon="graduation-cap text-danger" title="Sesi Senai"
-        subtitle="Ciência, robótica, inovação e tecnologia para o dia a dia dos nossos alunos">
-        <div className="display-4">Teste de conteúdo</div>
-        <hr />
-        <p className="mb-0">Cadastro</p>
-      </Main>
+export default props =>
+  <Main icon="lock" title="Login"
+    subtitle="Preencha os campos abaixo para">
+
+    <div className="form">
+      <div className="col-12 col-md-6">
+        <div className="form-group">
+          <label>E-mail</label>
+          <input type="text" className="form-control"
+            name="email"
+            placeholder="Digite seu e-mail: "></input>
+        </div>
+      </div>
+    </div>
+
+    <div className="form">
+      <div className="col-12 col-md-6">
+        <div className="form-group">
+          <label>Senha</label>
+          <input type="text" className="form-control"
+            name="senha"
+            placeholder="Digite sua senha: "></input>
+        </div>
+      </div>
+
+      <hr />
+
+      <div className="row">
+        <div className="col-12 d-flex justify-content-end">
+          <a className="btn btn-primary"
+            href='/#/user'>
+            salvar
+          </a>
+          <a className="btn btn-secundary ml-2"
+            href="/#/*">
+            cancelar
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </Main>

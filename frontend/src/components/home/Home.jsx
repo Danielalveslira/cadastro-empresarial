@@ -3,7 +3,7 @@ import Main from '../template/Main'
 
 export default props =>
   <Main icon="lock" title="Login"
-    subtitle="Preencha os campos abaixo para">
+    subtitle="Preencha os campos abaixo para acessar">
 
     <div className="form">
       <div className="col-12 col-md-6">

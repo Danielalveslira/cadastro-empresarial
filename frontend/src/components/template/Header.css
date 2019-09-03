@@ -4,10 +4,9 @@ header.header{
   overflow: hidden;/*não estourar espaços*/
   white-space: nowrap;/*não estourar espaços textos*/
   box-shadow: var(--shadow);/*sombreamento*/
+  height: 70%;
 }
-header.header.h1{
-  font-size: 1.8em;/*tamanho do h1 em header*/
-}
+
 p{
   font-size: 65%;
   color: grey;

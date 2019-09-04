@@ -12,7 +12,7 @@ const HeardProps = {// Componente responsavel pelo cabeçalho
 const baseUrl = "http://localhost:3001/user"
 // Estado inicial - Quando sobe a aplicação
 const initialState = {
-    user: { name: ' ', email: ' ', address: ' ' },
+    user: { name: '', email: '', address: '' },
     list: []
 }
 
@@ -67,7 +67,7 @@ export default class UserCrud extends Component {
                             name="name"
                             value={this.state.user.name}
                             onChange={e => this.updateField(e)}
-                            placeholder="Nome = "></input>
+                            placeholder="Digite o nome: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
@@ -77,7 +77,7 @@ export default class UserCrud extends Component {
                             name="email"
                             value={this.state.user.email}
                             onChange={e => this.updateField(e)}
-                            placeholder="Email = "></input>
+                            placeholder="Digite o email: "></input>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ export default class UserCrud extends Component {
                             name="address"
                             value={this.state.user.address}
                             onChange={e => this.updateField(e)}
-                            placeholder="Endereço = "></input>
+                            placeholder="Digite o endereço: "></input>
                     </div>
                 </div>
 

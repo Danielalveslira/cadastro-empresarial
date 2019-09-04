@@ -56,27 +56,15 @@
       "id": 11
     },
     {
-      "name": " nome",
-      "email": "email",
-      "address": "endereço",
+      "name": " Nome",
+      "email": "Email",
+      "address": "Endereço",
       "id": 13
-    },
-    {
-      "name": " alan",
-      "email": "caraIncrivel",
-      "address": "rua dos melhores",
-      "id": 14
-    },
-    {
-      "name": " nome",
-      "email": "email",
-      "address": "endereço",
-      "id": 15
     }
   ],
   "products": [
     {
-      "name": " a",
+      "name": " alface",
       "qtd": " 3",
       "valor": " 4",
       "id": 2
@@ -86,6 +74,27 @@
       "qtd": "1",
       "valor": "2",
       "id": 3
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "NomeCliente": "Zé",
+      "Produto": "Tijela",
+      "QtdProduto": "5",
+      "DataVenda": "2019-09-04",
+      "Valor": "10"
+    }
+  ],
+  "provider": [
+    {
+      "id": 1,
+      "NomeFornecedor": "Mark",
+      "DataFundação": "05/09/2019",
+      "NomeFantasia": "Robots Ltda.",
+      "SocioNome1": "Geralt",
+      "SocioNome2": "Peter",
+      "Cnpj": "12345678910"
     }
   ]
 }

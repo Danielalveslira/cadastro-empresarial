@@ -12,7 +12,7 @@ const HeardProps = {// Componente responsavel pelo cabeçalho
 const baseUrl = "http://localhost:3001/products"
 // Estado inicial - Quando sobe a aplicação
 const initialState = {
-    products: { name: ' ', qtd: ' ', valor: ' ' },
+    products: { name: '', qtd: '', valor: '' },
     list: []
 }
 
@@ -67,7 +67,7 @@ export default class ProductCrud extends Component {
                             name="name"
                             value={this.state.products.name}
                             onChange={e => this.updateField(e)}
-                            placeholder="Nome = "></input>
+                            placeholder="Digite o nome do produto: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
@@ -77,7 +77,7 @@ export default class ProductCrud extends Component {
                             name="qtd"
                             value={this.state.products.qtd}
                             onChange={e => this.updateField(e)}
-                            placeholder="Quantidade = "></input>
+                            placeholder="Digite a quantidade: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
@@ -87,7 +87,7 @@ export default class ProductCrud extends Component {
                             name="valor"
                             value={this.state.products.valor}
                             onChange={e => this.updateField(e)}
-                            placeholder="Valor = "></input>
+                            placeholder="Digite o Valor: "></input>
                     </div>
                 </div>
                 <hr />

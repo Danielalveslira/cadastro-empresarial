@@ -3,7 +3,7 @@ import Main from '../template/Main'
 import axios from 'axios'
 
 const HeardProps = {// Componente responsavel pelo cabeçalho
-    icon: 'archive',
+    icon: 'sitemap',
     title: 'Fornecedores',
     subtitle: 'Informações sobre os fornecedores'
 }

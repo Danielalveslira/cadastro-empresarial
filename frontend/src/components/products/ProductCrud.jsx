@@ -162,7 +162,6 @@ export default class ProductCrud extends Component {
                             <i className="fa fa-trash"
                                 onClick={() => this.remove(products)}></i>
                         </button>
-                        <br></br>
                         <button className="btn btn=warning">Valor total: {products.valor*products.qtd}</button>
                     </td>
                 </tr>

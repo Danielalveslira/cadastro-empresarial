@@ -34,7 +34,6 @@ header.header{
 
 aside.menu-area{
   grid-area: menu;
-  padding-left: 4%;
 }
 
 main.content{

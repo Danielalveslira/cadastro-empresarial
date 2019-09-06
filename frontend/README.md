@@ -1,5 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br><br>
-**Please run `npm install` before doing the `npm start` command, to add the node modules**
+**Please run `npm install` before doing the `npm start` command, to add the node modules**<br><br>
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
 
 ## Available Scripts
 

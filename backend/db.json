@@ -96,5 +96,53 @@
       "SocioNome2": "Peter",
       "Cnpj": "12345678910"
     }
+  ],
+  "empresa": [
+    {
+      "id": 1,
+      "NomeEmpresa": "Paradoxo Ltda.",
+      "DataFundação": "1 de Abril de 2018",
+      "FormaJurídica": "Sociedade Limitada (Ltda.)",
+      "ÁreaAtuação": "Instituição Comercial",
+      "PorteEmpresa": "Medio Porte"
+    }
+  ],
+  "filial": [
+    {
+      "id": 1,
+      "NomeFilial": "Paradoxo Uberlândia",
+      "Cnpj": "01987654321",
+      "Endereço": "Rua do Astronauta nº2",
+      "Contato": "ReclameAqui@gmail.com"
+    }
+  ],
+  "estoque": [
+    {
+      "id": 1,
+      "Fornecedor": "Dante",
+      "Produto": "Tijela",
+      "QtdProduto": "5",
+      "Valor": "10",
+      "Validade": "2019-09-04"
+    }
+  ],
+  "cliente": [
+    {
+      "nome": "Scott",
+      "email": "pilgrim@gmail.com",
+      "telefone": "999999999",
+      "cpf": "15935746825",
+      "id": 1
+    }
+  ],
+  "funcionarios": [
+    {
+      "id": 1,
+      "nome": "Kazuto Kirigaya",
+      "cpf": "01010101010",
+      "salario": "1,000,00",
+      "cargo": "Hacker",
+      "telefone": "123456789"
+    }
   ]
 }

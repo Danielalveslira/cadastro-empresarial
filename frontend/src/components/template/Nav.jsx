@@ -17,7 +17,22 @@ export default props =>
 				<i className="fa fa-money"></i> Vendas
 		</a>
 			<a href='#/provider'>
-				<i className="fa fa-archive"></i> Fornecedores
+				<i className="fa fa-sitemap"></i> Fornecedores
+		</a>
+			<a href='#/empresa'>
+				<i className="fa fa-building"></i> Empresa
+		</a>
+			<a href='#/filial'>
+				<i className="fa fa-heart"></i> Filial
+		</a>
+			<a href='#/estoque'>
+				<i className="fa fa-archive"></i> Estoque
+		</a>
+			<a href='#/cliente'>
+				<i className="fa fa-users"></i> Clientes
+		</a>
+			<a href='#/funcionario'>
+				<i className="fa fa-child"></i> Funcionarios
 		</a>
 		</nav>
 	</aside>

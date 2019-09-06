@@ -3,58 +3,60 @@ import Main from '../template/Main'
 import axios from 'axios'
 
 const HeardProps = {// Componente responsavel pelo cabeçalho
-    icon: 'shopping-cart text-danger',
-    title: 'Produtos',
-    subtitle: 'Cadastro: Incluir, Lista, Alterar e Excluir'
+    icon: 'users',
+    title: 'Clientes',
+    subtitle: 'Informações dos cliente'
 }
 
 // Localizando nosso banco
-const baseUrl = "http://localhost:3001/products"
+const baseUrl = "http://localhost:3001/cliente"
 // Estado inicial - Quando sobe a aplicação
 const initialState = {
-    products: { name: '', qtd: '', valor: '' },
+    cliente: {
+        nome: "", email: "", telefone: "", cpf: ""
+    },
     list: []
 }
 
-export default class ProductCrud extends Component {
+export default class clientesCrud extends Component {
     state = { ...initialState }
 
     clear() {
-        this.setState({ products: initialState.products })
+        this.setState({ cliente: initialState.cliente })
     }
     // Para incluir e alterar
     save() {
-        const products = this.state.products
-        const method = products.id ? 'put' : 'post'
+        const cliente = this.state.cliente
+        const method = cliente.id ? 'put' : 'post'
         /* Se id for verdadeiro(existe um id, faça um put:atualização),
         senão faça um post:Criação */
-        const url = products.id ? `${baseUrl}/${products.id}` : baseUrl
+        const url = cliente.id ? `${baseUrl}/${cliente.id}` : baseUrl
         // Se existe um id atualiza a informação senão baseUrl cria mais um id
-        axios[method](url, products)
+        axios[method](url, cliente)
             .then(resp => { //getUpdateList será criada
                 const list = this.getUpdateList(resp.data)
-                this.setState({ products: initialState.products, list })
+                this.setState({ cliente: initialState.cliente, list })
             })
     }
 
-    getUpdateList(products) {
+    getUpdateList(cliente) {
         // Cria uma nova lista a partir do filter
         // u => cria uma lista a separando o id que passou
         // Unshift coloca esse id na primeira posição do array
         // return list atualiza a linha 35 que atualiza o estado.
-        const list = this.state.list.filter(u => u.id !== products.id)
-        list.unshift(products)
+        const list = this.state.list.filter(u => u.id !== cliente.id)
+        list.unshift(cliente)
         return list
     }
 
     updateField(event) {
-        //products será o clone (ou recebe o valor) do estado products
+        //cliente será o clone (ou recebe o valor) do estado cliente
         //clonamos para não alterar o objeto diretamente
-        const products = { ...this.state.products }
+        const cliente = { ...this.state.cliente }
         //seta o que está em input e virá value
-        products[event.target.name] = event.target.value
+        cliente[event.target.name] = event.target.value
         //set insere
-        this.setState({ products })
+        this.setState({ cliente })
     }
 
     renderForm() {
@@ -62,32 +64,42 @@ export default class ProductCrud extends Component {
             <div className="form">
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Nome do produto</label>
+                        <label>Nome do cliente</label>
                         <input type="text" className="form-control"
-                            name="name"
-                            value={this.state.products.name}
+                            name="nome"
+                            value={this.state.cliente.nome}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite o nome do produto: "></input>
+                            placeholder="Digite o nome do cliente: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Quantidade</label>
+                        <label>Email</label>
                         <input type="text" className="form-control"
-                            name="qtd"
-                            value={this.state.products.qtd}
+                            name="email"
+                            value={this.state.cliente.Cnpj}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite a quantidade: "></input>
+                            placeholder="Digite o email: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Valor</label>
+                        <label>Telefone</label>
                         <input type="text" className="form-control"
-                            name="valor"
-                            value={this.state.products.valor}
+                            name="telefone"
+                            value={this.state.cliente.telefone}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite o Valor: "></input>
+                            placeholder="Digite o telefone: "></input>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="form-group">
+                        <label>CPF</label>
+                        <input type="text" className="form-control"
+                            name="cpf"
+                            value={this.state.cliente.Valor}
+                            onChange={e => this.updateField(e)}
+                            placeholder="Digite o CPF: "></input>
                     </div>
                 </div>
                 <hr />
@@ -117,13 +129,13 @@ export default class ProductCrud extends Component {
         })
     }
     // Atualizar o estado do objeto
-    load(products) {
-        this.setState({ products })
+    load(cliente) {
+        this.setState({ cliente })
     }
     // Deleta na base então repassa a lista atualizando
-    remove(products) {
-        axios.delete(`${baseUrl}/${products.id}`).then(resp => {
-            const list = this.state.list.filter(u => u !== products)
+    remove(cliente) {
+        axios.delete(`${baseUrl}/${cliente.id}`).then(resp => {
+            const list = this.state.list.filter(u => u !== cliente)
             this.setState({ list })
         })
     }
@@ -133,9 +145,10 @@ export default class ProductCrud extends Component {
             <table className="table mt-4">
                 <thead>
                     <th>ID</th>
-                    <th>Nome Produto</th>
-                    <th>Quantidade</th>
-                    <th>Valor</th>
+                    <th>Cliente</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
                     <th>Ações</th>
                 </thead>
                 <tbody>
@@ -144,30 +157,29 @@ export default class ProductCrud extends Component {
             </table>
         )
     }
-    // Atualização e Remoção de produtos.
+    // Atualização e Remoção de usuários.
     renderRows() {
-        return this.state.list.map(products => {
+        return this.state.list.map(cliente => {
             return (
-                <tr key={products.id}>
-                    <td>{products.id}</td>
-                    <td>{products.name}</td>
-                    <td>{products.qtd}</td>
-                    <td>{products.valor}</td>
+                <tr key={cliente.id}>
+                    <td>{cliente.id}</td>
+                    <td>{cliente.nome}</td>
+                    <td>{cliente.email}</td>
+                    <td>{cliente.telefone}</td>
+                    <td>{cliente.cpf}</td>
                     <td>
                         <button className="btn btn=warning">
                             <i className="fa fa-pencil"
-                                onClick={() => this.load(products)}></i>
+                                onClick={() => this.load(cliente)}></i>
                         </button>
                         <button className="btn btn-danger ml-2">
                             <i className="fa fa-trash"
-                                onClick={() => this.remove(products)}></i>
+                                onClick={() => this.remove(cliente)}></i>
                         </button>
-                        <button className="btn btn=warning">Valor total: {products.valor*products.qtd}</button>
                     </td>
                 </tr>
             )
-        }
-        )
+        })
     }
 
     render() {

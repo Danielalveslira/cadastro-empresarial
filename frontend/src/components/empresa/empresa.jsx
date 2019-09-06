@@ -3,58 +3,61 @@ import Main from '../template/Main'
 import axios from 'axios'
 
 const HeardProps = {// Componente responsavel pelo cabeçalho
-    icon: 'shopping-cart text-danger',
-    title: 'Produtos',
-    subtitle: 'Cadastro: Incluir, Lista, Alterar e Excluir'
+    icon: 'building',
+    title: 'Empresa',
+    subtitle: 'Informações da empresa'
 }
 
 // Localizando nosso banco
-const baseUrl = "http://localhost:3001/products"
+const baseUrl = "http://localhost:3001/empresa"
 // Estado inicial - Quando sobe a aplicação
 const initialState = {
-    products: { name: '', qtd: '', valor: '' },
+    empresa: {
+        NomeEmpresa: "", DataFundação: "", FormaJurídica: "", ÁreaAtuação: "",
+        PorteEmpresa: ""
+    },
     list: []
 }
 
-export default class ProductCrud extends Component {
+export default class EmpresaCrud extends Component {
     state = { ...initialState }
 
     clear() {
-        this.setState({ products: initialState.products })
+        this.setState({ empresa: initialState.empresa })
     }
     // Para incluir e alterar
     save() {
-        const products = this.state.products
-        const method = products.id ? 'put' : 'post'
+        const empresa = this.state.empresa
+        const method = empresa.id ? 'put' : 'post'
         /* Se id for verdadeiro(existe um id, faça um put:atualização),
         senão faça um post:Criação */
-        const url = products.id ? `${baseUrl}/${products.id}` : baseUrl
+        const url = empresa.id ? `${baseUrl}/${empresa.id}` : baseUrl
         // Se existe um id atualiza a informação senão baseUrl cria mais um id
-        axios[method](url, products)
+        axios[method](url, empresa)
             .then(resp => { //getUpdateList será criada
                 const list = this.getUpdateList(resp.data)
-                this.setState({ products: initialState.products, list })
+                this.setState({ empresa: initialState.empresa, list })
             })
     }
 
-    getUpdateList(products) {
+    getUpdateList(empresa) {
         // Cria uma nova lista a partir do filter
         // u => cria uma lista a separando o id que passou
         // Unshift coloca esse id na primeira posição do array
         // return list atualiza a linha 35 que atualiza o estado.
-        const list = this.state.list.filter(u => u.id !== products.id)
-        list.unshift(products)
+        const list = this.state.list.filter(u => u.id !== empresa.id)
+        list.unshift(empresa)
         return list
     }
 
     updateField(event) {
-        //products será o clone (ou recebe o valor) do estado products
+        //empresa será o clone (ou recebe o valor) do estado empresa
         //clonamos para não alterar o objeto diretamente
-        const products = { ...this.state.products }
+        const empresa = { ...this.state.empresa }
         //seta o que está em input e virá value
-        products[event.target.name] = event.target.value
+        empresa[event.target.name] = event.target.value
         //set insere
-        this.setState({ products })
+        this.setState({ empresa })
     }
 
     renderForm() {
@@ -62,32 +65,52 @@ export default class ProductCrud extends Component {
             <div className="form">
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Nome do produto</label>
+                        <label>Nome da empresa</label>
                         <input type="text" className="form-control"
-                            name="name"
-                            value={this.state.products.name}
+                            name="NomeEmpresa"
+                            value={this.state.empresa.NomeEmpresa}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite o nome do produto: "></input>
+                            placeholder="Digite o nome da empresa: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Quantidade</label>
-                        <input type="text" className="form-control"
-                            name="qtd"
-                            value={this.state.products.qtd}
+                        <label>Data de fundação</label>
+                        <input type="date" className="form-control"
+                            name="DataFundação"
+                            value={this.state.empresa.DataFundação}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite a quantidade: "></input>
+                            placeholder="Digite a data de fundação: "></input>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="form-group">
-                        <label>Valor</label>
+                        <label>Forma Jurídica</label>
                         <input type="text" className="form-control"
-                            name="valor"
-                            value={this.state.products.valor}
+                            name="FormaJurídica"
+                            value={this.state.empresa.FormaJurídica}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite o Valor: "></input>
+                            placeholder="Digite a forma jurídica: "></input>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="form-group">
+                        <label>Área de atuação</label>
+                        <input type="text" className="form-control"
+                            name="ÁreaAtuação"
+                            value={this.state.empresa.ÁreaAtuação}
+                            onChange={e => this.updateField(e)}
+                            placeholder="Digite a área de atuação: "></input>
+                    </div>
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className="form-group">
+                        <label>Porte da empresa</label>
+                        <input type="text" className="form-control"
+                            name="PorteEmpresa"
+                            value={this.state.empresa.PorteEmpresa}
+                            onChange={e => this.updateField(e)}
+                            placeholder="Digite o porte da empresa: "></input>
                     </div>
                 </div>
                 <hr />
@@ -117,13 +140,13 @@ export default class ProductCrud extends Component {
         })
     }
     // Atualizar o estado do objeto
-    load(products) {
-        this.setState({ products })
+    load(empresa) {
+        this.setState({ empresa })
     }
     // Deleta na base então repassa a lista atualizando
-    remove(products) {
-        axios.delete(`${baseUrl}/${products.id}`).then(resp => {
-            const list = this.state.list.filter(u => u !== products)
+    remove(empresa) {
+        axios.delete(`${baseUrl}/${empresa.id}`).then(resp => {
+            const list = this.state.list.filter(u => u !== empresa)
             this.setState({ list })
         })
     }
@@ -133,9 +156,11 @@ export default class ProductCrud extends Component {
             <table className="table mt-4">
                 <thead>
                     <th>ID</th>
-                    <th>Nome Produto</th>
-                    <th>Quantidade</th>
-                    <th>Valor</th>
+                    <th>Nome da empresa</th>
+                    <th>Data de fundação</th>
+                    <th>Forma jurídica</th>
+                    <th>Área de atuação</th>
+                    <th>Porte da empresa</th>
                     <th>Ações</th>
                 </thead>
                 <tbody>
@@ -144,30 +169,30 @@ export default class ProductCrud extends Component {
             </table>
         )
     }
-    // Atualização e Remoção de produtos.
+    // Atualização e Remoção de usuários.
     renderRows() {
-        return this.state.list.map(products => {
+        return this.state.list.map(empresa => {
             return (
-                <tr key={products.id}>
-                    <td>{products.id}</td>
-                    <td>{products.name}</td>
-                    <td>{products.qtd}</td>
-                    <td>{products.valor}</td>
+                <tr key={empresa.id}>
+                    <td>{empresa.id}</td>
+                    <td>{empresa.NomeEmpresa}</td>
+                    <td>{empresa.DataFundação}</td>
+                    <td>{empresa.FormaJurídica}</td>
+                    <td>{empresa.ÁreaAtuação}</td>
+                    <td>{empresa.PorteEmpresa}</td>
                     <td>
                         <button className="btn btn=warning">
                             <i className="fa fa-pencil"
-                                onClick={() => this.load(products)}></i>
+                                onClick={() => this.load(empresa)}></i>
                         </button>
                         <button className="btn btn-danger ml-2">
                             <i className="fa fa-trash"
-                                onClick={() => this.remove(products)}></i>
+                                onClick={() => this.remove(empresa)}></i>
                         </button>
-                        <button className="btn btn=warning">Valor total: {products.valor*products.qtd}</button>
                     </td>
                 </tr>
             )
-        }
-        )
+        })
     }
 
     render() {

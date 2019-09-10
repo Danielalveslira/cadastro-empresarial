@@ -144,5 +144,16 @@
       "cargo": "Hacker",
       "telefone": "123456789"
     }
+  ],
+  "telemarketing": [
+    {
+      "id": 1,
+      "Cliente": "Grumpy",
+      "Telefone": "12345678",
+      "Atendente": "Happy",
+      "Assunto": "Reclamação",
+      "Mensagem": "A droga da net que não funciona",
+      "DataLigação": "2019-09-10"
+    }
   ]
 }

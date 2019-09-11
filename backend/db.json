@@ -155,5 +155,23 @@
       "Mensagem": "A droga da net que não funciona",
       "DataLigação": "2019-09-10"
     }
+  ],
+  "portaria": [
+    {
+      "id": 1,
+      "nome": "Alex Hirsch",
+      "horarioEntrada": "13:30",
+      "horarioSaida": "17:30",
+      "departamento": "AIPSI01T",
+      "pessoa": "Crispim Luiz"
+    },
+    {
+      "nome": "zezinho",
+      "horarioEntrada": "08:05",
+      "horarioSaida": "09:07",
+      "departamento": "banco",
+      "pessoa": "mcduck",
+      "id": 2
+    }
   ]
 }

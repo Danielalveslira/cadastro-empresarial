@@ -12,6 +12,7 @@ import EstoqueCrud from '../estoque/estoque'
 import ClienteCrud from '../cliente/cliente'
 import FuncionarioCrud from '../funcionario/funcionario'
 import TelemarketingCrud from '../telemarketing/TelemarketingCrud'
+import PortariaCrud from '../portaria/portariaCrud'
 
 export default props =>
     <Switch>
@@ -26,6 +27,7 @@ export default props =>
         <Route path='/cliente' component={ClienteCrud} />
         <Route path='/funcionario' component={FuncionarioCrud} />
         <Route path='/telemarketing' component={TelemarketingCrud} />
+        <Route path='/portaria' component={PortariaCrud} />
         <Redirect from= '*' to= '/'/>
     </Switch>
 /*Reference:ferramentas do React Router.

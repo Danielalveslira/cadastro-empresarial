@@ -37,5 +37,8 @@ export default props =>
 		<a href='#/telemarketing'>
 				<i className="fa fa-phone"></i> Telemarketing
 		</a>
+			<a href='#/Portaria'>
+				<i className="fa fa-bell"></i> Portaria
+		</a>
 		</nav>
 	</aside>

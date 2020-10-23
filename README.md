@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/Nerd0000/Cadastro-ReactJs/blob/master/screenshot%20users.png"></img>
+  <img src="https://github.com/Nerd0000/Cadastro-ReactJs/blob/master/foto.png"></img>
 </p>
 
 ## 🚀 Tecnologias utilizadas

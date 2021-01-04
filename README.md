@@ -2,10 +2,6 @@
     < 👨‍💼 > <br>
     Cadastro Empresarial
 </h1>
-  
-<h4 align="center">
-  Vários exemplos de cadastro com React e Node
-</h4>
 
 <p align="center">
     <a href="https://gitpod.io/#https://github.com/Nerd00F/Cadastro-robusto">

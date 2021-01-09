@@ -1,5 +1,4 @@
 <h1 align="center">
-    < 👨‍💼 > <br>
     Cadastro Empresarial
 </h1>
 
